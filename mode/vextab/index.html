@@ -1,0 +1,81 @@
+<!doctype html>
+
+<title>CodeMirror: VexTab mode</title>
+<meta charset="utf-8"/>
+<link rel=stylesheet href="../../doc/docs.css">
+
+<link rel="stylesheet" href="../../lib/codemirror.css">
+<link rel="stylesheet" href="../../theme/monokai.css">
+<script src="../../lib/codemirror.js"></script>
+<script src="vextab.js"></script>
+
+<style type="text/css">.CodeMirror {border-top: 1px solid black; border-bottom: 1px solid black;}</style>
+<div id=nav>
+  <a href="http://codemirror.net"><img id=logo src="../../doc/logo.png"></a>
+
+  <ul>
+    <li><a href="../../index.html">Home</a>
+    <li><a href="../../doc/manual.html">Manual</a>
+    <li><a href="https://github.com/marijnh/codemirror">Code</a>
+  </ul>
+  <ul>
+    <li><a href="../index.html">Language modes</a>
+    <li><a class=active href="#">VexTab</a>
+  </ul>
+</div>
+
+<article>
+<h2>VexTab mode</h2>
+
+
+<div><textarea id="code" name="code">
+options space=20 font-style=italic
+        font-face=times font-size=10
+
+tabstave notation=true tablature=false
+  notes :q
+  notes C/4 $.a./bottom.$
+  notes E/4 $.av/bottom.$
+  notes G/4 $.a>/bottom.$
+  notes B/4 $.a-/bottom.$
+  notes C/5 $.a^/top.$
+  notes E/5 $.a+/top.$
+  notes G/5 $.ao/top.$
+
+  text :q,.-1,.strict,Stacatto,Staccatissimo
+  text Accent,Tenuto,Marcato,LH pizzicato,Snap pizzicato
+  text ++,.12,.font=courier-12-,:q,a.,av,a>,a-,a^,a+,ao
+
+options space=120 font-style=italic
+        font-face=times font-size=10
+
+tabstave notation=true tablature=false
+  notes :q
+  notes C/4 $.ah/bottom.$
+  notes E/4 $.a@a/top.$
+  notes G/4 $.a@u/bottom.$
+  notes B/4 $.a|/bottom.$
+  notes C/5 $.am/top.$
+
+  text :q,.-1,.strict,Open Note,Up Fermata
+  text Down Fermata,Bow Up,Bow Down
+  text ++,.12,.font=courier-12-,:q,ah,a@a,a@u,a|,am
+
+options space=40
+</textarea></div>
+
+    <script>
+      var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+        theme:"monokai",
+        lineNumbers: true
+      });
+    </script>
+
+    <p>
+      Mode for the VexTab language for standard music notation and guitar tablature.<br>
+      VexTab is a creation of Mohit Cheppudira<br>
+      The definition of the language can be found at <a href="http://www.vexflow.com/vextab/tutorial.html">http://www.vexflow.com/vextab/tutorial.html</a>.
+    </p>
+
+    <p><strong>MIME types defined:</strong> <code>text/vextab</code>.</p>
+  </article>
